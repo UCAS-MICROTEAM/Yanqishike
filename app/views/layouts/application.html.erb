@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>雁栖食客</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="header">
+    <p class="header">雁栖食客</p>
+  </div>
+  <%= yield %>
+<div  style="background-color:#ffffff;clear:both;text-align:center;">版权所有 ©WangBin 2017</div>
+</body>
+</html>

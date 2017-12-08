@@ -1,0 +1,102 @@
+
+:root{  
+  /*//css变量*/
+  /*//主题颜色，用法background-color: var(--color-theme);*/
+  --color-theme: #03a9f4;
+}  
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: White;
+  color: DarkSlateGrey;
+  /*font-family: Tahoma, Verdana, sans-serif;*/
+  font-size: 10pt;
+}
+body{
+  min-height: 720px;
+}
+div {
+  margin:0px;
+  padding:0px;
+}
+
+html, body,td,th,h1,h2,h3,p,a {
+ /*font-family: 微软雅黑;*/
+     -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+div#main {
+  margin: 0px;
+  padding: 0px;
+}
+a {
+  background: transparent;
+  color: maroon;
+  text-decoration: underline;
+  font-weight: bold;
+}
+h1 {
+  color: maroon;
+  font-size: 150%;
+  /*font-style: italic;*/
+  display: block;
+  width: 100%;
+  /*border-bottom: 1px solid DarkSlateGrey;*/
+}
+
+div.header{
+  width: 100%;
+  height: auto;
+  /*text-align: center;*/
+  background-color: var(--color-theme);
+  display: block;
+}
+
+p.header {
+  color:white; 
+  font-size:2em;
+  padding-left:100px; 
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+h1.title {
+  padding-left: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 10px;
+  /*padding: 10px;*/
+  background-color: var(--color-theme);
+  color: white;
+  /*border-bottom: 4px solid gold;*/
+  font-size: 2em;
+  font-style: normal;
+}
+table#movies {
+  margin: 10px;
+  border-collapse: collapse;
+  width: 100%;
+  border-bottom: 2px solid black;
+}
+table#movies th {
+  border: 2px solid white;
+  font-weight: bold;
+  background-color: wheat;
+}
+table#movies th, table#movies td {
+  padding: 4px;
+  text-align: left;
+}
+#notice #warning {
+  background: rosybrown;
+  margin: 1em 0;
+  padding: 4px;
+}
+form label {
+  display: block;
+  line-height: 25px;
+  font-weight: bold;
+  color: maroon;
+}

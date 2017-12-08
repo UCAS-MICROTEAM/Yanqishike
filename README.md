@@ -7,6 +7,8 @@
 这行是张富友添加的</br>
 这行是王斌添加的</br>
 
+这行是寇英帅添加的</br>
+
 
 Welcome to your Rails project on Cloud9 IDE!
 

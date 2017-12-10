@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
+  # devise_for :users
+   devise_for :users, :controllers => {:registrations => "devise_customized/registrations"}   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -54,5 +58,5 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   #根路由
-  root :to=> 'welcome#welcome'
+  root :to=> 'welcome#index'
 end

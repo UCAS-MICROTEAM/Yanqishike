@@ -4,13 +4,18 @@
   <title>雁栖食客</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <div class="header">
-    <p class="header">雁栖食客</p>
-  </div>
-  <%= yield %>
-<div  style="background-color:#ffffff;clear:both;text-align:center;">版权所有 ©WangBin 2017</div>
+  <!--<div class="header">-->
+  <!--  <p class="header">雁栖食客</p>-->
+  <!--</div>-->
+<body class="<%= "body-background" if params[:controller]!="homes" %>">
+  <p class="notice"><%= notice %></p>  
+  <p class="alert"><%= alert %></p>  
+  <%= render partial: 'layouts/header' %>
+  <%= render partial: 'layouts/content' %>
+  <%= render partial: 'layouts/footer' %>
 </body>
 </html>

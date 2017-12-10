@@ -32,6 +32,19 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# 以上是默认的，以下是新增的
+# http://blog.csdn.net/ysc6688/article/details/46391503
+gem 'devise'  #管理登录状态、注册等
+# 在需要登录的control中加上：before_filter:authenticate_user!
+
+gem 'devise-bootstrap-views'
+gem 'bootstrap-sass', '~> 3.3.7'
+# gem 'sass-rails', '>= 3.2'
+# Use ActiveModel has_secure_password
+gem 'bcrypt', '~> 3.1.11'
+
+# 新增end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'

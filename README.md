@@ -1,17 +1,37 @@
+雁栖食客
+===============
 
+中国科学院大学 高级软件工程
 
-# 雁栖食客
-## 小组成员
+小组成员
+----
 王斌，杨颖珊，张富友，寇英帅</br>
 
-这行是张富友添加的</br>
-这行是王斌添加的</br>
-
-这行是寇英帅添加的</br>
 
 
+进度
+-----
+### 2017.12.09
+* 初创工程
+* 创建github小组
+
+### 2017.12.10
+* 王斌@创建Model  
+
+### 2017.12.11
+* 王斌@基于devise做了登录注册等  
+* 王斌@合并了devise的User和本项目的User字段  
+* 王斌@基于bootstrap美化了注册界面  
+
+
+测试区
+----
+这行是张富友添加的  
+这行是王斌添加的  
+这行是寇英帅添加的  
+如果我们想把一行文本进行换行，我们可以在需要换行的地方输入至少两个空格，然后回车即可  
+  
 Welcome to your Rails project on Cloud9 IDE!
-
 To get started, just do the following:
 
 1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
@@ -19,7 +39,6 @@ To get started, just do the following:
 
 Happy coding!
 The Cloud9 IDE team
-
 
 ## Support & Documentation
 
@@ -33,3 +52,21 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
     '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
      `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
     ----------------------------------------------------------------- 
+    
+    
+License
+-----------
+
+    Copyright 2017 王斌，杨颖珊，张富友，寇英帅
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.

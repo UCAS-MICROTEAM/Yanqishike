@@ -1,12 +1,12 @@
 class CreateAll1 < ActiveRecord::Migration
   #正式版的
   def change
-    create_table :users do |t|
-      t.integer :role
-      t.string :name
-      t.string :password
-      t.timestamps
-    end
+    # create_table :users do |t|
+    #   t.integer :role
+    #   t.string :name
+    #   t.string :password
+    #   t.timestamps
+    # end
     create_table :statuses do |t|
       t.references  :user, index: true#references和belongs_to作用相同,后面跟单数
       t.references  :food, index: true

@@ -5,13 +5,21 @@
     	<!--left-->
     	<div style="width: 70%;height: 840px;float: left">
     		<!--广告位-->
-    		<div style="height: 280px;background-color: rgba(10,178,34,0.5)">
+    		<div style="height: 280px;background-color: rgba(10,178,34,0.05)">
     		    <p>广告</p>
+    		    <marquee behavior="scroll">
+    		        <% @index_banners.each do |c| %>
+    		            <a href="<%= c.url %>" target="_blank">
+                            <img border="0" src="<%= c.image %>" alt="<%= c.content %>" width="304" height="228">
+                        </a>
+                    <% end %>
+    		    </marquee>
     		</div>
     		<!--广告位 end-->
     <!--美食单-->
     		<div style="height: 280px;background-color: #06e4ed">
-    			<p>广告</p>
+    			<p>美食单</p>
+    			
     		</div>
     		<!--美食记-->
     		<div style="height: 280px;background-color: #93ed03">

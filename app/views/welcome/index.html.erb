@@ -1,27 +1,40 @@
 <div class='container'>
 
-    <div style="height:100px;background-color:#AAAAAA;margin:0">这里应有广告轮播</div>
+   <!--中间部分start-->
+    <div style="height: 840px;width: 100%;margin-top: 0px;">
+    	<!--left-->
+    	<div style="width: 70%;height: 840px;float: left">
+    		<!--广告位-->
+    		<div style="height: 280px;background-color: rgba(10,178,34,0.5)">
+    		    <p>广告</p>
+    		</div>
+    		<!--广告位 end-->
+    <!--美食单-->
+    		<div style="height: 280px;background-color: #06e4ed">
+    			<p>广告</p>
+    		</div>
+    		<!--美食记-->
+    		<div style="height: 280px;background-color: #93ed03">
+    			<p>美食记</p> 
+                <% @index_statuses.each do |s| %>
+                <p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>    
+                <% end %>
+    		</div>
     
-    <div>
-        <h1>美食记</h1> 
-        <% @index_statuses.each do |s| %>
-            <p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>    
-        <% end %>
-    </div>
+    		<!--美食记 end-->
     
-    <div>
-        <h1>美食单</h1>
-        <p>暂无</p>
-    </div>
+    		
     
-    <div>
-    <h1>小卡片</h1>    
-        <% @index_cards.each do |c| %>
+    		<!--美食单 end-->
+    	</div>
+    	<!--left end-->
+    	<!--right-->
+    	<div style="height: 840px;width: 30%;background-color: orange;float: right">
+    		<h1>小卡片</h1> 
+    		<% @index_cards.each do |c| %>
            <p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>    
         <% end %>
+    	</div>
+    	<!--right end-->
     </div>
-    
-    
-    <h1></h1>
-
 </div>

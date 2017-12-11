@@ -13,7 +13,7 @@
 * 如app/models/user.rb ,class User < ActiveRecord::Base,对应users_controller
 * belongs_to 后面必须是单数, 都是小写, has_many 后面必须是复数 
 * rails generate controller home index 生成控制器
-
+* bundle update 更新gem依赖包
 
 ### devise的几个方法 by 王斌
 * [详见官方github](https://github.com/plataformatec/devise) 

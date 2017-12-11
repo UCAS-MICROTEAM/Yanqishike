@@ -58,8 +58,8 @@ url2 = "https://www.toutiao.com/a6403429391653536001"
 url3 = "https://www.toutiao.com/a6403429391653536001#p=5"
 url4 = "https://www.toutiao.com/a6403429391653536001#p=8"
 if Banner.count < 4
-    banner1 = Banner.create(:content => "广告1", :image => image1, :url => url1)
-    banner2 = Banner.create(:content => "广告2", :image => image2, :url => url2)
-    banner3 = Banner.create(:content => "广告3", :image => image3, :url => url3)
-    banner4 =  Banner.create(:content => "广告4", :image => image4, :url => url4)
+     Banner.create(:content => "广告1", :image => image1, :url => url1)
+     Banner.create(:content => "广告2", :image => image2, :url => url2)
+     Banner.create(:content => "广告3", :image => image3, :url => url3)
+     Banner.create(:content => "广告4", :image => image4, :url => url4)
 end

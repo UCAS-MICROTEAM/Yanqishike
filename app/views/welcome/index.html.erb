@@ -1,6 +1,27 @@
-<div style="height:100px;background-color:#AAAAAA;margin:0">这里应有广告轮播</div>
+<div class='container'>
 
-<h1>美食记</h1> 
-<h1>美食单</h1>
-<h1>小卡片</h1>
-<h1></h1>
+    <div style="height:100px;background-color:#AAAAAA;margin:0">这里应有广告轮播</div>
+    
+    <div>
+        <h1>美食记</h1> 
+        <% @index_statuses.each do |s| %>
+            <p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>    
+        <% end %>
+    </div>
+    
+    <div>
+        <h1>美食单</h1>
+        <p>暂无</p>
+    </div>
+    
+    <div>
+    <h1>小卡片</h1>    
+        <% @index_cards.each do |c| %>
+           <p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>    
+        <% end %>
+    </div>
+    
+    
+    <h1></h1>
+
+</div>

@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   get 'home/index'
+  
+  resources :banners
+  resources :banner
+  resources :cards
+  resources :card
 
   # devise_for :users
    devise_for :users, :controllers => {:registrations => "devise_customized/registrations"}   

@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <div class="row">
+
+     <div class="col-md-offset-2 col-sm-8">
+
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+          <h3 class="panel-title">Card列表</h3>
+          </div>
+      </div>
+
+        <div class="panel-body">
+          <table class="table table-responsive table-condensed table-hover">
+            <thead>
+            <tr>
+              <th>id</th>
+              <th>内容</th>
+              <th>用户id</th>
+            </tr>
+
+            <tbody>
+            <% @cards.each do |card| %>
+                <tr>
+                  <td><%= card.id %></td>
+                  <td><%= card.content %></td>
+                  <td><%= card.user_id%></td>
+                  <td><%= link_to "删除", card_path(card), :method => "delete", class: 'btn btn-xs btn-danger', :data => {confirm: '确定要删除此Card?'} %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

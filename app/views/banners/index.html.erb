@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+
+     <div class="col-md-offset-2 col-sm-8">
+
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+          <h3 class="panel-title">广告列表</h3>
+          </div>
+      </div>
+
+        <div class="panel-body">
+          <table class="table table-responsive table-condensed table-hover">
+            <thead>
+            <tr>
+              <th>广告内容</th>
+              <th>图片</th>
+              <th>URL</th>
+            </tr>
+
+            <tbody>
+            <% @banners.each do |banner| %>
+                <tr>
+                  <td><%= banner.content %></td>
+                  <td><%= banner.image %></td>
+                  <td><%= banner.url %></td>
+                  <td><%= link_to "编辑", edit_banner_path(banner), class: 'btn btn-xs btn-info' %></td>
+                  <td><%= link_to "删除", banner_path(banner), :method => "delete", class: 'btn btn-xs btn-danger', :data => {confirm: '确定要删除此广告?'} %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <%= link_to "新增", new_banner_path, class: 'btn btn-xs btn-info' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

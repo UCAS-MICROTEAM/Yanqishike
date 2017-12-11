@@ -51,9 +51,15 @@ end
 
 image1 = "http://p3.pstatp.com/origin/1634000698a440297532"
 image2 = "http://p3.pstatp.com/origin/168500007a74744d43ec"
+image3 = "http://p3.pstatp.com/origin/19fe00008be1f0bc3f68"
+image4 = "http://p9.pstatp.com/origin/19fa00025081807195d8"
 url1 = "https://www.toutiao.com/i6383886598123028994/#p=9"
 url2 = "https://www.toutiao.com/a6403429391653536001"
-if Banner.first == nil
-    banner1 = Banner.create(:content => "广告1", :image => image1, :url => url1)
-    banner2 = Banner.create(:content => "广告2", :image => image2, :url => url2)
+url3 = "https://www.toutiao.com/a6403429391653536001#p=5"
+url4 = "https://www.toutiao.com/a6403429391653536001#p=8"
+if Banner.count < 4
+     Banner.create(:content => "广告1", :image => image1, :url => url1)
+     Banner.create(:content => "广告2", :image => image2, :url => url2)
+     Banner.create(:content => "广告3", :image => image3, :url => url3)
+     Banner.create(:content => "广告4", :image => image4, :url => url4)
 end

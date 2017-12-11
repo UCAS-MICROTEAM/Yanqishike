@@ -16,23 +16,29 @@
  //https://github.com/twbs/bootstrap-sass
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
+// @import "bootstrap";
+// @import 'bootstrap/theme';
+
+//给Bootstrap的默认主题换肤
+// http://www.jianshu.com/p/52c57ce141d8
+// 打开各个主题的页面，找到菜单里面的_variables.scss，把里面的内容放在assets/stylesheets里面的一个scss文件中，然后再引用@import 'bootstrap'即可！
+
+@import "bootstrap_variables";
 @import "bootstrap";
-@import 'bootstrap/theme';
 
+// .table{
+//   margin-bottom: 10px;
+// }
 
-.table{
-  margin-bottom: 10px;
-}
+// .table-striped > tbody > tr:hover >td.has_hover {
+//   background-color: #C0C0C0;
+// }
 
-.table-striped > tbody > tr:hover >td.has_hover {
-  background-color: #C0C0C0;
-}
-
-footer {
-  background-color: #555;
-  color: white;
-  padding: 10px;
-}
+// footer {
+//   background-color: #555;
+//   color: white;
+//   padding: 10px;
+// }
 
 .body-background{
   background-image: image-url('background.jpg');
@@ -40,9 +46,10 @@ footer {
   //background-repeat: no-repeat;
   //background-size: 100% 100%;
 }
-
+// 标题栏高度是60px
 body{
-  padding-top: 50px;
+  margin-top: 60px;
+  padding-top: 0px;
   padding-bottom: 100px;
 }
 
@@ -51,6 +58,14 @@ html {
   height: 100%;
 }
 
+// 王斌增加样式 start
 body,button, input, select, textarea,h1 ,h2, h3, h4, h5, h6 { 
   font-family: Microsoft YaHei,'宋体' , Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
 }
+// 默认的alert只有底边距？我勒个去
+.alert {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+//王斌增加 END

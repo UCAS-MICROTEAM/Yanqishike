@@ -7,7 +7,9 @@
 ----
 王斌，杨颖珊，张富友，寇英帅</br>
 
-
+开发文档
+----
+见 [dev_doc/doc.md](https://github.com/UCAS-MICROTEAM/Yanqishike/blob/master/dev_doc/doc.md)
 
 进度
 -----
@@ -22,6 +24,9 @@
 * 王斌@基于devise做了登录注册等  
 * 王斌@合并了devise的User和本项目的User字段  
 * 王斌@基于bootstrap美化了注册界面  
+* 王斌@引入botostrap皮肤
+* 王斌@引入devise中文翻译
+* 王斌@初步建立开发文档dev_doc/doc.md
 
 
 测试区

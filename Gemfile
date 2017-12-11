@@ -1,4 +1,6 @@
-source 'https://rubygems.org'
+# source 'https://rubygems.org'
+source 'https://gems.ruby-china.org'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -35,14 +37,20 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # 以上是默认的，以下是新增的
 # http://blog.csdn.net/ysc6688/article/details/46391503
 gem 'devise'  #管理登录状态、注册等
+# devise中文化 http://blog.sina.com.cn/s/blog_8254427901019ig5.html
 # 在需要登录的control中加上：before_filter:authenticate_user!
 
 gem 'devise-bootstrap-views'
 gem 'bootstrap-sass', '~> 3.3.7'
+# gem 'bootstrap-sass', '~> 4.0.0-beta2'
+# fuck只能命令行输入 gem install bootstrap -v 4.0.0.beta2
+
 # gem 'sass-rails', '>= 3.2'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.11'
 
+# bootswatch主题
+# gem 'bootswatch-rails'  
 # 新增end
 
 group :development, :test do

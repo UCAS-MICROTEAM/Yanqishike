@@ -4,9 +4,7 @@
      <div class="col-md-offset-2 col-sm-8">
 
       <div class="panel panel-primary">
-          <div class="panel-heading">
-          <h3 class="panel-title">Card列表 <%= link_to "创建", new_card_path, class: 'btn btn-xs btn-info' %></h3>
-          </div>
+          
       </div>
 
         <div class="panel-body">
@@ -15,22 +13,26 @@
             <tr>
               <th>id</th>
               <th>内容</th>
+              <th>美食id</th>
+              <th>美食名</th>
               <th>用户id</th>
               <th>用户名字</th>
             </tr>
 
             <tbody>
-            <% @cards.each do |card| %>
+            <% @statuses.each do |status| %>
                 <tr>
-                  <td><%= card.id %></td>
-                  <td><%= card.content %></td>
-                  <td><%= card.user.id%></td>
-                  <td><%= card.user.name%></td>
-                  <td><%= link_to "删除", card_path(card), :method => "delete", class: 'btn btn-xs btn-danger', :data => {confirm: '确定要删除此Card?'} %></td>
+                  <td><%= status.id %></td>
+                  <td><%= status.content %></td>
+                  <td><%= status.food.id%></td>
+                  <td><%= status.food.name%></td>
+                  <td><%= status.user.id%></td>
+                  <td><%= status.user.name%></td>
                 </tr>
             <% end %>
             </tbody>
           </table>
+        </div>
       </div>
     </div>
   </div>

@@ -7,9 +7,18 @@ Rails.application.routes.draw do
   get 'home/index'
   
   resources :banners
-  resources :banner
-  resources :cards
-  resources :card
+
+  resources :cards do
+    collection do
+      get :list
+    end
+  end
+ 
+  resources :statuses do
+    collection do
+      get :list
+    end
+  end
 
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "devise_customized/registrations"}   

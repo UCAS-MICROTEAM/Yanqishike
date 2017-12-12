@@ -51,6 +51,14 @@ before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:i
     @cards = current_user.cards
   end
 
+###########################################自定义路由########################################
+
+  def list
+    @cards=Card.all
+  end
+  
+#############################################################################################
+
   private
 
   def card_params

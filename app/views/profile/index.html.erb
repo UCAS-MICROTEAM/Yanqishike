@@ -1,0 +1,30 @@
+<div class="container">
+    <h1>Profile#index 我的主页</h1>
+    <p>Find me in app/views/profile/index.html.erb</p>
+    <div class="row">
+        <div class="col-md-offset-3 col-sm-6">
+            <div >
+                <p>我共发过<%= @cards.count %>个小卡片 
+                    <%= link_to "查看", cards_path(current_user), class: 'btn btn-xs btn-info' %>
+                </p> 
+            </div>
+            <p></p>
+            
+            <div class="list-group">
+              <a class="list-group-item active">
+                我发过的内容
+              </a>
+              <a class="list-group-item">
+                 <span class="badge">2</span>
+                <h4 class="list-group-item-heading">我的动态</h4>
+                <!--<p class="list-group-item-text">查看我发过的所有动态</p>-->
+              </a>
+              <%= link_to cards_path(current_user), class:"list-group-item" do %>
+                <span class="badge"><%= @cards.count%></span>
+                <h4 class="list-group-item-heading">我的小卡片</h4>
+                <!--<p class="list-group-item-text">查看我发过的所有小卡片</p>-->
+              <% end %>
+            </div>
+        </div>
+    </div>
+</div>

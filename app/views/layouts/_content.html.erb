@@ -19,11 +19,24 @@
       </div>
     <% end %>
     <% if flash[:alert] %>
-      <div class="alert alert-dismissible alert-info">
+      <div class="alert alert-dismissible alert-danger">
         <button  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</button>
         <strong> <%= flash[:alert] %></strong>
       </div>
     <% end %>
+    <% if flash[:success] %>
+      <div class="alert alert-dismissible alert-success">
+        <button  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+        <strong> <%= flash[:success] %></strong>
+      </div>
+    <% end %>
+    <% if flash[:warning] %>
+      <div class="alert alert-dismissible alert-warning">
+        <button  href="#" class="close" data-dismiss="alert" aria-label="close">&times;</button>
+        <strong> <%= flash[:warning] %></strong>
+      </div>
+    <% end %>
+    
   </div>
 </div>
 

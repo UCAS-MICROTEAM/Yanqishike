@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  #根路由，主界面，无需登录，显示最近的几条的内容
+  root :to=> 'welcome#index' 
+  #profile是用户个人的页面，标题栏的“我的”链接
+  get 'profile/index'
+
   get 'home/index'
   
   resources :banners
@@ -7,7 +12,7 @@ Rails.application.routes.draw do
   resources :card
 
   # devise_for :users
-   devise_for :users, :controllers => {:registrations => "devise_customized/registrations"}   
+  devise_for :users, :controllers => {:registrations => "devise_customized/registrations"}   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -62,6 +67,5 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  #根路由
-  root :to=> 'welcome#index'
+  
 end

@@ -50,6 +50,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'bcrypt', '~> 3.1.11'
 
 # bootswatch主题
+# https://bootswatch.com/3/flatly/
 # gem 'bootswatch-rails'  
 # 新增end
 

@@ -9,9 +9,20 @@
       <ul class="nav navbar-nav">
 
         <!--<li class=<%= "active" if params[:controller]=="homes" %>> <%= link_to "主页", root_path %></li>-->
-        <li><a href="#">主页</a></li>
-        <li><a href="#">我的</a></li>
-        
+        <!--<li><a href="#">主页</a></li>-->
+        <!--<li><a href="#">我的</a></li>-->
+        <% if user_signed_in? %>
+          <!--以下两种写法效果相同，第二种block中可以添加多个元素-->
+          <li> 
+          <%= link_to( "#{current_user.name}的主页" , profile_index_path, class: 'btn btn-xs') %>
+          </li>
+          
+          <!--<li> -->
+          <!--  <%= link_to profile_index_path(current_user) , class: 'btn btn-xs' do %>-->
+          <!--    <%= current_user.name %>的主页-->
+          <!--  <% end %>-->
+          <!--</li>-->
+        <% end %>
 
       </ul>
 

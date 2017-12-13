@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-offset-3 col-sm-6">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="text-center">Card</h3>
+        </div>
+        <div class="panel-body">
+          <%= render "statuses/form" %>
+        </div>
+        
+        
+      </div>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-6" id="id_new_statuses_merchant">
+          <%= render partial: 'statuses/merchant', :locals => { :merchants_local => @merchants , :button_label => "测试传值"} %>
+    </div>
+    <div class="col-md-6" id="id_new_statuses_food">
+        <p>点击商家名称后将显示food列表</p>  
+    </div>
+  </div>
+</div>
+
+<script>
+    function click_merchant(merchant_id, merchant_name){
+      // alert(merchant_name)
+      $('#id_form_merchant_name').val(merchant_name)
+      // 神一样的jquery给input赋值方法，日，还不如写下面的那一句呢
+      // document.getElementById("id_form_merchant_name").value = merchant_name;
+      // var url = "/statuses/foodofmerchant.1"
+      var url = "/statuses/foodofmerchant." +  merchant_id
+      $.ajax({
+            type: "GET",
+            url: url,
+            success: function(result){
+            $('#id_new_statuses_food').html(result);           
+        }
+        });
+    }
+    function click_food(food_id, food_name){
+      // alert(food_name)
+      $('#id_form_food_name').val(food_name)
+    }
+    // http://blog.csdn.net/lovenkcs/article/details/44991615
+    // $(".submmit-btn").click(function () {
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "/example",
+    //         data: {},
+    //         dataType: 'json',
+    //         success: function(date){
+    //         $('#refresh-part').html(date.htmls);           
+    //     }
+    //     });
+    // });
+</script>
+
+<!--这一段经测试是不行的-->
+<!--< %= render partial: 'statuses/food', :locals => { :foods_local => @foods } % >-->
+<!--给partial数据，可以用 :locals，如 :locals => { :merchants_local => @merchants },
+可以将controller中的@merchants传过去，注意在partial中必须以merchants_local不带@来访问 -->
+
+<!--因为要在controller中做局部刷新，所以partial中数据必须是传进去的-->
+<!--controller刷新partial见下面的网页-->
+<!--http://andyhu1007.iteye.com/blog/399971-->
+<!--render :update do |page|    
+ page.replace_html 'flash_message', :partial => 'flash_message' , :locals => {...}
+  用由flash_message这个partial渲染出来的html替换页面中flash_message为id的html。
+  即page.replace_html "被替换的ID"，:partial =>"替换模板" 
+<!--end   -->
+
+<!--操操操，经过我的实验，2009年的render :update现在已经不能用了！！！-->
+<!--只能自己写js了？？？-->
+<!--http://hlee.iteye.com/blog/454712-->
+<!--http://blog.csdn.net/lovenkcs/article/details/44991615-->
+
+
+
+<!--<a href="javascript:void(0);" onclick="functionname()" >aaaa</a>-->
+<!--<a href="javascript:functionname('dd')" >ddddd</a>-->
+<!--<a href="javascript:;"onclick="functionname()" >ddddd</a>-->
+<!--<a href="#"onclick="functionname()" >ddddd</a>-->

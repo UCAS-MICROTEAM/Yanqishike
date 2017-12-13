@@ -18,9 +18,13 @@ if user1 == nil
     puts "请先在网站上注册一个用户！！！"
 end
 
-if Merchant.first == nil
-    merchant1 = Merchant.create(:name => "商家1" , :address => "我是商家地址", :introduce => "我是商家介绍", :user => user1 )
-    food1 = Food.create(:name => "菜品1", :user => user1, :merchant => merchant1 ) 
+if Merchant.count < 5
+    for i in 2..6
+        puts "局部变量的值为 #{i}"
+        merchant1 = Merchant.create(:name => "商家#{i}" , :address => "我是商家地址", :introduce => "我是商家介绍", :user => user1 )
+        food1 = Food.create(:name => "菜品#{i} of 商家#{i}", :user => user1, :merchant => merchant1 ) 
+        puts "创建商家#{merchant1.name} 和 菜品 #{food1.name}"
+    end
 else
     merchant1 = Merchant.first
     food1 = Food.first

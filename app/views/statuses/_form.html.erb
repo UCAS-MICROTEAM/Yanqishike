@@ -1,0 +1,16 @@
+<!--http://blog.csdn.net/dazhi_100/article/details/9850347 使用第二种写法-->
+<!--http://blog.csdn.net/chunyang_guo/article/details/12779765-->
+<%= form_tag controller: "statuses", action: "create", method: "post" do %> 
+    
+  <label for="content">content:</label>
+  <%= text_field_tag :content, params[:content],  class:"form-control", placeholder: "输入内容" %>
+  <label for="merchant_name">商家名称(可从下方列表中点击选择)</label>
+  <%= text_field_tag :merchant_name, params["merchant_name"] ,  class: 'form-control', placeholder: "输入商家名称", id: "id_form_merchant_name"  %>
+  <label for="food_name">Food名称(可从下方列表中点击选择)</label>
+  <%= text_field_tag :food_name, params["food_name"] ,  class: 'form-control', placeholder: "输入food名称", id: "id_form_food_name"  %>
+  <%= submit_tag "创建" , class: "btn btn-success btn-block" %>
+  <%= link_to '取消', statuses_path, :class => "btn btn-default btn-block" %>
+  <!--password_field_tag是密码输入框-->
+<% end %>
+
+

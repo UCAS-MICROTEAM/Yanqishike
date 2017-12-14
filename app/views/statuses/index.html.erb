@@ -3,16 +3,20 @@
 
      <div class="col-md-offset-2 col-sm-8">
 
-      
 
         <div class="panel-body">
           <table class="table table-responsive table-condensed table-hover">
+             <div class="panel-heading">
+          <h3 class="panel-title">我发布的动态 <%= link_to "创建", new_status_path, class: 'btn btn-xs btn-info' %></h3>
+          </div>
             <thead>
             <tr>
               <th>id</th>
               <th>内容</th>
               <th>美食id</th>
               <th>美食名</th>
+              <th>商家id</th>
+              <th>商家名</th>
               <th>用户id</th>
               <th>用户名字</th>
             </tr>
@@ -22,10 +26,12 @@
                 <tr>
                   <td><%= status.id %></td>
                   <td><%= status.content %></td>
-                  <td><%= status.food.id%></td>
-                  <td><%= status.food.name%></td>
-                  <td><%= status.user.id%></td>
-                  <td><%= status.user.name%></td>
+                  <td><%= status.food.id %></td>
+                  <td><%= status.food.name %></td>
+                  <td><%= status.food.merchant.id %></td>
+                  <td><%= status.food.merchant.name %></td>
+                  <td><%= status.user.id %></td>
+                  <td><%= status.user.name %></td>
                   <td><%= link_to "删除", status_path(status), :method => "delete", class: 'btn btn-xs btn-danger', :data => {confirm: '确定要删除此动态?'} %></td>
                 </tr>
             <% end %>

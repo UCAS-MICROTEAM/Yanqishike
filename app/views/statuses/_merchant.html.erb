@@ -1,0 +1,42 @@
+<!--这是创建动态的时候，商家的部分界面，通过render引入，同时可以动态刷新-->
+<div class="container-fluid">
+  <div class="row">
+
+     <div class="col-md-offset-2 col-sm-8">
+
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+          <h3 class="panel-title">商家列表(点击商家名称可查看其菜品) <%= link_to "创建商家(TODO)", root_path, class: 'btn btn-xs btn-info' %></h3>
+          </div>
+      </div>
+      <!--<p><%= button_label %></p>-->
+
+        <div class="panel-body">
+          <table class="table table-responsive table-condensed table-hover">
+            <thead>
+            <tr>
+              <th>id</th>
+              <th>名称</th>
+              <th>地址</th>
+            </tr>
+
+            <tbody>
+            <% merchants_local.each do |merchant| %>
+              
+                <tr>
+                  <td><%= merchant.id %></td>
+                  <td>
+                    <a href="javascript:click_merchant('<%= merchant.id %>' , '<%= merchant.name %>' )">
+                      <%= merchant.name %>
+                    </a>
+                  </td>
+                  <td><%= merchant.address %></td>
+                </tr>
+              
+            <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

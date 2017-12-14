@@ -1,0 +1,34 @@
+<!--这是创建动态的时候，选择商家之后出现的选择Food的部分界面，通过render引入，同时可以动态刷新-->
+<div class="container-fluid">
+  <div class="row">
+     <div class="col-md-offset-2 col-sm-8">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+          <h3 class="panel-title">美食列表 <%= link_to "创建美食（TODO）", root_path, class: 'btn btn-xs btn-info' %></h3>
+          </div>
+      </div>
+        <div class="panel-body">
+          <table class="table table-responsive table-condensed table-hover">
+            <thead>
+            <tr>
+              <th>id</th>
+              <th>名称</th>
+            </tr>
+
+            <tbody>
+            <% foods_local.each do |food| %>
+                <tr>
+                  <td><%= food.id %></td>
+                    <td>
+                      <a href="javascript:click_food('<%= food.id %>' , '<%= food.name %>' )">
+                      <%= food.name %>
+                      </a>
+                      </td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -17,8 +17,11 @@ Rails.application.routes.draw do
   resources :statuses do
     collection do
       get :list
+      get 'foodofmerchant' #这个路由怎么指定参数？？？？？？
     end
   end
+  
+  
 
   # devise_for :users
   devise_for :users, :controllers => {:registrations => "devise_customized/registrations"}   

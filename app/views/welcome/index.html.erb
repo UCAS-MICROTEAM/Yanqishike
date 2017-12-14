@@ -1,70 +1,67 @@
 <div class='container'>
+	<!--中间部分start-->
+	<div style="height: 840px;width: 100%;">
+		<!--left-->
+		<div style="width: 65%;height: 840px;float: left">
+			<!--广告位-->
+			<div class = "banner" style = "height: 280px; background-color: red">
+			    <ul>
+                	<% @index_banners.each do |b| %>
+                	<li style="background-image: url('<%= b.image %>');">
+                		<div class="inner">
+                			<!--<h1><%= b.content %></h1>-->
+                			<!--<p>暂无介绍</p>-->
+                			<a class="btn" target="_blank" href="<%= b.url %>">查看详情</a>
+                		</div>
+                	</li>
+                	</li>
+                	<% end %>
+                </ul>
+			</div>
+				<script>
+                    if (window.chrome) {
+                        $('.banner li').css('background-size', '100% 100%');
+                    }
+                    $('.banner').unslider({
+                        arrows: true,
+                        fluid: true,
+                        dots: true
+                    });
+                </script>
+			
+			<!--广告位 end-->
+			
+			<!--美食单-->
+			<div style="height: 280px;background-color: #06e4ed">
+				<p>美食单</p>
 
-   <!--中间部分start-->
-    <div style="height: 840px;width: 100%;margin-top: 0px;">
-    	<!--left-->
-    	<div style="width: 70%;height: 840px;float: left">
-    		<!--广告位-->
-    		<div class = "banner" style = "height: 280px;">
-    		    <ul>
-    		        <% @index_banners.each do |b| %>
-                        <li style="background-image: url('<%= b.image %>');">
-            			    <div class="inner">
-            			        <h1><%= b.content %></h1>
-            			        <!--<p>暂无介绍</p>-->
-            			        <a class="btn" target="_blank" href="<%= b.url %>">查看详情</a>
-            			    </div>
-            			</li>
-            		</li>
-                    <% end %>
-            	</ul>
-	        </div>
-	        <script>
-                if(window.chrome) {
-                    $('.banner li').css('background-size', '100% 100%');
-                }
-                $('.banner').unslider({
-                    arrows: true,
-                    fluid: true,
-                    dots: true
-                });
-	        </script>
-            <!--广告位 end-->
-        <!--美食单-->
-    		<div style="height: 280px;background-color: #06e4ed">
-    			<p>美食单</p>
-    			
-    		</div>
-    		<!--美食记-->
-    		<div style="height: 280px;background-color: #93ed03">
-    			<p>美食记</p> 
-                <% @index_statuses.each do |s| %>
-                <p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>    
-                <% end %>
-    		</div>
-    
-    		<!--美食记 end-->
-    
-    		
-    
-    		<!--美食单 end-->
-    	</div>
-    	<!--left end-->
-    	<!--right-->
-    	<div style="height: 840px;width: 30%;background-color: #f1f1f1 ; float: right">
-    		<h3>小卡片 <%= link_to "更多", cards_path, class: 'btn btn-xs btn-info' %></h3> 
-    		<% @index_cards.each do |c| %>
-               <p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>    
-            <% end %>
-    	</div>
-    	<!--right end-->
-    </div>
+			</div>
+			<!--美食单 end-->
+			
+			<!--美食记-->
+			<div style="height: 280px;background-color: #93ed03">
+				<p>美食记</p>
+				<% @index_statuses.each do |s| %>
+				<p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>
+				<% end %>
+			</div>
+			<!--美食记 end-->
+
+		</div>
+		<!--left end-->
+		
+		<!--right-->
+		<div style="height: 840px;width: 35%;background-color: #f1f1f1 ; float: right">
+			<h3>小卡片 <%= link_to "更多", cards_path, class: 'btn btn-xs btn-info' %></h3>
+			<% @index_cards.each do |c| %>
+			<p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>
+			<% end %>
+		</div>
+		<!--right end-->
+	</div>
+
 </div>
-
-
 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-
 <script src="js/jquery.event.move.js"></script>
 <script src="js/jquery.event.swipe.js"></script>
-
 <script src="js/unslider.min.js"></script>

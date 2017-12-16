@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html >
+<html >
 <head>
   <title>雁栖食客</title>
   <meta charset="UTF-8">
@@ -13,14 +13,13 @@
   <%= csrf_meta_tags %>
 	
 </head>
-  <!--<div class="header">-->
-  <!--  <p class="header">雁栖食客</p>-->
-  <!--</div>-->
-<body class="<%= "body-background" if params[:controller]!="homes" %>">
+<body class="<%= "body-background" if params[:controller]!="homes" %>" >
   <!--<p class="notice"><%= notice %></p>  -->
   <!--<p class="alert"><%= alert %></p>  -->
-  <%= render partial: 'layouts/header' %>
+
   <%= render partial: 'layouts/content' %>
   <%= render partial: 'layouts/footer' %>
+  <%= render partial: 'layouts/header' %>
+  
 </body>
 </html>

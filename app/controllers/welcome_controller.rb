@@ -14,4 +14,11 @@ class WelcomeController < ApplicationController
         @index_banners = Banner.all
     end
 
+    def ajaxloadcards
+        # render :text  => {:name => "David"}.to_json
+        # https://stackoverflow.com/questions/3226054/how-to-convert-a-ruby-object-to-json
+        @index_cards = Card.last(6).reverse
+        render :json => @index_cards
+        puts "==============================================ajaxloadcards"
+    end
 end

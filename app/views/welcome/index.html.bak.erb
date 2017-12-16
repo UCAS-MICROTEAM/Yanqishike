@@ -1,0 +1,156 @@
+<div id="id_index_danmu" style="background-color: rgba(0,0,0,0.5);  z-index:11; position:fixed; top:0; left:0; width:100% ;height:100%">
+	    <canvas id="canvas" style="width:100% ,height:100%">弹幕</canvas>
+</div>
+<div class='container' >
+	<!--中间部分start-->
+	<div style="height: 840px;width: 100%;">
+		<!--left-->
+		<div style="width: 65%;height: 840px;float: left">
+			<!--广告位-->
+			<div class = "banner" style = "height: 280px; background-color: red">
+			    <ul>
+                	<% @index_banners.each do |b| %>
+                	<li style="background-image: url('<%= b.image %>');">
+                		<div class="inner">
+                			<!--<h1><%= b.content %></h1>-->
+                			<!--<p>暂无介绍</p>-->
+                			<a class="btn" target="_blank" href="<%= b.url %>">查看详情</a>
+                		</div>
+                	</li>
+                	</li>
+                	<% end %>
+                </ul>
+			</div>
+				<script>
+                    if (window.chrome) {
+                        $('.banner li').css('background-size', '100% 100%');
+                    }
+                    $('.banner').unslider({
+                        arrows: true,
+                        fluid: true,
+                        dots: true
+                    });
+                </script>
+			
+			<!--广告位 end-->
+			
+			<!--美食单-->
+			<!--<div style="height: 280px;background-color: #06e4ed">
+				<p>美食单</p>
+
+			</div>-->
+			<!--美食单 end-->
+			
+			<!--美食记-->
+			<div style="height: 560px;background-color: #93ed03">
+				<p>美食记</p>
+				<% @index_statuses.each do |s| %>
+				<p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>
+				<% end %>
+			</div>
+			<!--美食记 end-->
+
+		</div>
+		<!--left end-->
+		
+		<!--right-->
+		<div class="div_info" style="height: 840px;width:35%;background-color: #f1f1f1 ; float: right" >
+		
+		
+			<h3 id="fuck">小卡片<%= link_to "more >", cards_path, class: 'btn btn-xs btn-info' %></h3>
+			    <% @index_cards.each do |c| %>
+			  
+			        <p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>
+			    <% end %>
+		</div>
+		<!--right end-->
+		
+	</div>
+	
+
+</div>
+<!--弹幕-->
+
+
+<script type="text/javascript">
+function play_danmu(){
+    var url = "/welcome/ajaxloadcards"
+    // http://www.jb51.net/article/19366.htm
+    // 日你妈妈
+    $.getJSON(url,{param:"gaoyusi"},function(data){ 
+            //此处返回的data已经是json对象 
+            //以下其他操作同第一种情况 
+        var cardsArr = []
+        $.each(data,function(idx,item){ 
+            // alert("name:"+item.content+",value:"+item.id); 
+            cardsArr.push(item.content)
+        }); 
+        loadDamuData(cardsArr);
+    }); 
+}
+function loadDamuData(cards){
+    var canvas = document.getElementById('canvas');
+    var ctx = canvas.getContext("2d");
+    console.log("canvas.width->" + canvas.width + " height->" + canvas.height)
+    // var div = document.getElementById('id_index_danmu');
+    const colors = ["yellow", "pink", "orange", "red", "green", "#FFFFFF"];
+    // var textArr = [
+    //     "17素材网不错我经常去，嘿嘿！",
+    //     "今晚有没有LOL的一块啊？",
+    //     "这种烟真心不好抽",
+    //     "星期天我想去爬长城",
+    //     "边喝酒边看电影",
+    //     "如果有任何疑问可以扫码联系我哦！"
+    // ]
+    const  count = cards.length
+    // var numArrL = [80, 100, 5, 300, 500, 430];//初始的X
+    // var numArrT = [80, 100, 20, 300, 380, 210];//初始的Y
+    var textArr = [];
+    var numArrL = [];
+    var numArrT = [];
+    var colorArr = [];
+    
+    // for ( item in cards){
+    $.each(cards,function(idx,item){ 
+        //TODO
+         var jjjj = getRandomNum(0, colors.length - 1)
+        colorArr.push(colors[jjjj])
+        textArr.push(item)
+        // alert(item)
+        numArrL.push(getRandomNum(80, canvas.width))
+        numArrT.push(getRandomNum(80, canvas.height))
+        
+    })
+    
+   
+    var image = new Image();
+    ctx.font = "20px Courier New";
+   
+    setInterval(function () {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.save();
+        for (var j = 0; j < textArr.length; j++) {
+            numArrL[j] -= (j + 1) * 0.6;
+            ctx.fillStyle = colorArr[j]
+            ctx.fillText(textArr[j], numArrL[j], numArrT[j]);
+        }
+        for (var i = 0; i < textArr.length; i++) {
+            if (numArrL[i] <= -500) {
+                numArrL[i] = canvas.width;
+            }
+        }
+        ctx.restore();
+    }, 30)
+    
+}
+
+function getRandomNum(Min,Max){
+    var Range = Max - Min;   
+    var Rand = Math.random();   
+    const r = (Min + Math.round(Rand * Range));
+    console.log("getRandomNum->" + r)
+    return r;   
+}  
+
+</script>
+

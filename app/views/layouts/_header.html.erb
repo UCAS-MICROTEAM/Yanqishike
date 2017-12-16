@@ -4,13 +4,15 @@
     <div class="navbar-header">
       <%= link_to "雁栖食客", root_path, class: 'navbar-brand' %>
     </div>
+    
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
 
         <!--<li class=<%= "active" if params[:controller]=="homes" %>> <%= link_to "主页", root_path %></li>-->
         <!--<li><a href="#">主页</a></li>-->
-        <!--<li><a href="#">我的</a></li>-->
+        <li><a href="#">收藏夹</a></li>
+        <li><a href="javascript:void(0)" onclick="play_danmu()">弹幕</a></li>
         <% if user_signed_in? %>
           <!--以下两种写法效果相同，第二种block中可以添加多个元素-->
           <li> 
@@ -18,7 +20,7 @@
           </li>
           
           <!--<li> -->
-          <!--  <%= link_to profile_index_path(current_user) , class: 'btn btn-xs' do %>-->
+          <!--  <%= link_to profile_index_path , class: 'btn btn-xs' do %>-->
           <!--    <%= current_user.name %>的主页-->
           <!--  <% end %>-->
           <!--</li>-->
@@ -48,9 +50,9 @@
         <!--此处修改注册信息-->
         <% if current_user %>
         
-          <li class="dropdown open">
+          <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">
-                  <%= current_user.name %><span class="glyphicon glyphicon-user"></span>
+                  <span class="glyphicon glyphicon-user"></span>  <%= current_user.name %>  
             <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
               <li>

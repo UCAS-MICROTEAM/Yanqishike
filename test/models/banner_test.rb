@@ -45,7 +45,7 @@ class BannerTest < ActiveSupport::TestCase
      assert_not_empty @banner.content
    end
     
-   test  "should not have the same user"do   #测试banner不相同
+   test  "should not have the same banner"do   #测试banner不相同
       banner = Banner.new
       banner1 = Banner.new
       assert_not_same banner,banner1

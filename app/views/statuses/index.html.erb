@@ -33,6 +33,7 @@
                   <td><%= status.user.id %></td>
                   <td><%= status.user.name %></td>
                   <td><%= link_to "删除", status_path(status), :method => "delete", class: 'btn btn-xs btn-danger', :data => {confirm: '确定要删除此动态?'} %></td>
+                  <td><%=link_to "详情", status_path(status) %></td>
                 </tr>
             <% end %>
             </tbody>

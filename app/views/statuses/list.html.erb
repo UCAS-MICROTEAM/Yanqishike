@@ -28,6 +28,7 @@
                   <td><%= status.food.name%></td>
                   <td><%= status.user.id%></td>
                   <td><%= status.user.name%></td>
+                  <td><%=link_to "详情", status_path(status) %></td>
                 </tr>
             <% end %>
             </tbody>

@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:index, :new, :create, :edit, :update, :destroy]
+before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:index, :new, :create, :edit, :update, :destroy, :createcomment]
 
   def new
     @status=Status.new
@@ -62,7 +62,7 @@ before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:i
     else
       flash={:warning => "更新失败"}
     end
-    redirect_to banners_path, flash: flash
+    redirect_to statuses_path, flash: flash
   end
 
   def destroy
@@ -76,10 +76,28 @@ before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:i
     @statuses = current_user.statuses
   end
   
+  def show
+    @status=Status.find_by_id(params[:id])
+    @comments=@status.comments
+  end
+  
   ###########################################自定义路由########################################
   
   def list
     @statuses=Status.all
+  end
+  
+  def createcomment
+    @comment = Comment.new
+    @comment.content = params["content"]
+    @comment.user = current_user
+    @status_id = params["status_id"]
+    @status=Status.find_by_id(@status_id)
+    @comment.status=@status
+    if @comment.content!=""
+      @comment.save
+    end
+    redirect_to :action => 'show', :id => @status
   end
   
   #############################################################################################

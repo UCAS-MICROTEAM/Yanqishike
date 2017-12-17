@@ -1,0 +1,44 @@
+<div class="container-fluid">
+  <div class="row">
+
+     <div class="col-md-offset-2 col-sm-8">
+
+
+        <div class="panel-body">
+          
+             <div class="panel-heading">
+          <h3 class="panel-title"> <%= link_to '返回', statuses_path, :class => "btn btn-default btn-block" %>动态详情</h3>
+          </div>
+            <ul>
+             <li><%= @status.content %></li>
+             <li><%= @status.food.name %></li>
+             <li><%= @status.food.merchant.name %></li>
+             <li><%= @status.user.name %></li>
+            </ul>
+            <div>
+                <%= form_tag controller: "statuses", action: "createcomment", method: "post" do %> 
+                <%= hidden_field :status_id, params[:status_id],  class:"form-control", :value => @status.id %>
+                <%= text_field_tag :content, params[:content],  class:"form-control", placeholder: "输入评论" %>
+                <%= submit_tag "发表评论" , class: "btn btn-success btn-block" %>
+                <% end %>
+            </div>
+          <div>
+              <table class="table table-responsive table-condensed table-hover">
+             <div class="panel-heading">
+          <h3 class="panel-title">评论</h3>
+          </div>
+          <tbody>
+              <% @comments.each do |comment| %>
+                <tr>
+                  <td><%= comment.content %></td>
+                  <td><%= comment.user.name %></td>
+                  <td><%= comment.created_at %></td>
+                </tr>
+            <% end %>
+            </tbody>
+            </table>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

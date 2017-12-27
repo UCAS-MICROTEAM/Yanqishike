@@ -1,11 +1,11 @@
 
-<div class='container' >
+<div class='container' style="box-shadow: 0 0 50px #222 ;padding-left: 0px; padding-right: 0px;"><!-- style="background-color: #f2f4f8"-->
 	<!--中间部分start-->
-	<div style="height: 840px;width: 100%;">
+	<div style="height: 840px;width: 100%; "><!--background-color: white;-->
 		<!--left-->
-		<div style="width: 65%;height: 840px;float: left">
+		<div style="width: 74%;height: 840px;float: left">
 			<!--广告位-->
-			<div class = "banner" style = "height: 280px; background-color: red">
+			<div class = "banner" style = "height: 280px;">
 			    <ul>
                 	<% @index_banners.each do |b| %>
                 	<li style="background-image: url('<%= b.image %>');">
@@ -24,7 +24,7 @@
                         $('.banner li').css('background-size', '100% 100%');
                     }
                     $('.banner').unslider({
-                        arrows: true,
+                        arrows: false,
                         fluid: true,
                         dots: true
                     });
@@ -33,49 +33,59 @@
 			<!--广告位 end-->
 			
 			<!--美食单-->
-			<!--<div style="height: 280px;background-color: #06e4ed">
+		<!--	<div style="height: 280px;background-color: #06e4ed">
 				<p>美食单</p>
 
 			</div>-->
 			<!--美食单 end-->
 			
-			<!--美食记-->
-			<div style="height: 560px;background-color: #93ed03">
-				<p>美食记</p>
+			<!--动态-->
+			<div style="height: 560px; border-right:2px solid #a1a1a1; padding:20px 20px;  ">
+				<!--<p>动态</p>-->
+				<p style = "margin-top : 0px">动态<%= link_to "more >", list_statuses_path, class: 'btn btn-xs btn-info' %></p>
+				<!--h3标题自带margin-top定义-->
 				<% @index_statuses.each do |s| %>
-				<p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>
+				    <p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>
 				<% end %>
 			</div>
-			<!--美食记 end-->
+			<!--动态 end-->
 
 		</div>
 		<!--left end-->
 		
+		<!-- box-shadow: 0 0 9px #222;
+            border-radius: 20px;-->
+		
 		<!--right-->
-		<div class="div_info" style="height: 840px;width:35%;background-color: #f1f1f1 ; float: right" >
-		
-		
-			<h3 id="fuck">小卡片<%= link_to "more >", cards_path, class: 'btn btn-xs btn-info' %></h3>
-			    <% @index_cards.each do |c| %>
-			  
-			        <p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>
-			    <% end %>
+		<div  style="height: 840px;width:26%; float: right;padding:20px 20px; 	border-radius:0px;" >
+		    <!--class="div_info"
+		    background-color:#c4e3f2-->
+			<p id="fuck">小卡片<%= link_to "more >",list_cards_path, class: 'btn btn-xs btn-info' %></p>
+			<% @index_cards.each do |c| %>
+			    <p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>
+			<% end %>
 		</div>
 		<!--right end-->
 		
 	</div>
-		<!--弹幕-->
-    <div class="danmu-wrap flex-column navbar-fixed-top">
+	<!--中间部分 end-->
+	
+	<!--弹幕-->
+    <!--<div class="danmu-wrap flex-column ">
         <div class="box">
     </div>
     <div class="send flex-row">
         <input type="text" class="con" placeholder="弹幕发送[]~(^v^)~*">
         <div class="send-btn">发送</div>
-    </div>
+    </div>-->
 
 </div>
 
+
+
 </div>
+
+
 
 
 <script type="text/javascript">
@@ -203,7 +213,6 @@ function getRandomNum(Min,Max){
     function play_danmu(){
     var url = "/welcome/ajaxloadcards"
     // http://www.jb51.net/article/19366.htm
-    // 日你妈妈
     $.getJSON(url,{},function(data){ 
         // var cardsArr = []
         // alert('获取完成')
@@ -216,10 +225,10 @@ function getRandomNum(Min,Max){
 </script>
 
 <style type="text/css" media="screen">
-        .danmu-flex-column {
+       .danmu-flex-column {
             display: flex;
             flex-direction: column;
-            justify-content: space-between;, align-items: center;
+            justify-content: space-between; align-items: center;
         }
 
         .danmu-flex-row {
@@ -227,17 +236,23 @@ function getRandomNum(Min,Max){
             flex-direction: row;
             justify-content: center;
             align-items: center;
+            
         }
 
         .danmu-wrap {
             overflow: hidden;
-            width: 100%;
-            height: 600px;
-            margin: 60px auto;
+            width:100%;
+            /*height: 700px;*/
+            height:90%;
+            /*margin:  auto ;*/
+            margin-right : 10px;
             padding: 20px;
-            background-color: rgba(0,0,0,0.5);
+            background-color: rgba(0,0,0,0.3);
             box-shadow: 0 0 9px #222;
             border-radius: 20px;
+            position : fixed;
+            top : 0;
+            
             /*z-index:10; position:fixed; top:0; left:0; width:100% ;height:100%"*/
         }
 
@@ -251,8 +266,8 @@ function getRandomNum(Min,Max){
         .danmu-wrap .box span {
             position: absolute;
             top: 10px;
-            left: 20px;
-            display: block;
+            left:20px;
+            /*display: block;*/
             padding: 10px;
             color: #336688;
             text-overflow: ellipsis;  
@@ -275,6 +290,7 @@ function getRandomNum(Min,Max){
             border-radius: 5px 0px 0px 5px;
             box-shadow: 0px 0px 5px #d9d9d9;
             text-indent: 1em
+           
         }
 
         .danmu-wrap .send .send-btn {

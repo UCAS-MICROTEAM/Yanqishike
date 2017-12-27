@@ -13,13 +13,15 @@
   <%= csrf_meta_tags %>
 	
 </head>
-<body class="<%= "body-background" if params[:controller]!="homes" %>" >
+<body class="<%= "body-background" if params[:controller]!="homes" %>" style="background-color: #f2f2f2" >
   <!--<p class="notice"><%= notice %></p>  -->
   <!--<p class="alert"><%= alert %></p>  -->
 
-  <%= render partial: 'layouts/content' %>
+
   <%= render partial: 'layouts/footer' %>
+  <%= render partial: 'layouts/content' %>
   <%= render partial: 'layouts/header' %>
+  
   
 </body>
 </html>

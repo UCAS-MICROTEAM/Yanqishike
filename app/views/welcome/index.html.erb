@@ -10,12 +10,10 @@
                 	<% @index_banners.each do |b| %>
                 	<li style="background-image: url('<%= b.image %>');">
                 		<div class="inner">
-                			<!--<h1><%= b.content %></h1>-->
-                			<!--<p>暂无介绍</p>-->
                 			<a class="btn" target="_blank" href="<%= b.url %>">查看详情</a>
                 		</div>
                 	</li>
-                	</li>
+                	
                 	<% end %>
                 </ul>
 			</div>
@@ -41,12 +39,26 @@
 			
 			<!--动态-->
 			<div style="height: 560px; border-right:2px solid #a1a1a1; padding:20px 20px;  ">
-				<!--<p>动态</p>-->
-				<p style = "margin-top : 0px">动态<%= link_to "more >", list_statuses_path, class: 'btn btn-xs btn-info' %></p>
-				<!--h3标题自带margin-top定义-->
-				<% @index_statuses.each do |s| %>
-				    <p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>
-				<% end %>
+				
+				<span style="float: left">动态</span>
+				<span style="float: right"><%= link_to "more >", list_statuses_path, class: 'btn btn-xs btn-info' %></span>
+				<p><br></p>
+				<div style = "overflow:auto;height:450px;">
+    				<% @index_statuses.each do |s| %>
+    				    <!--<p style="">内容：<%= s.content %> 来自：<%= s.user.name %></p>-->
+    				    
+    				        <p><%= s.user.name %></p>
+    				        <div style =" width:100%; height:40px;background-color: #c4e3f2">
+    				            <%= s.content %>
+    				        </div>
+    				       <!--点赞、评论-->
+    				        <div style = "height :20 px；width : 100%">
+    				           <span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 赞</span>    
+    				           <span style = "float:right ; margin-right:20px"> <img src="/assets/comments1.png" alt="comments">评论  </span>
+    				        </div>
+    				        <!--点赞、评论 end-->
+    				<% end %>
+				</div>
 			</div>
 			<!--动态 end-->
 
@@ -56,16 +68,22 @@
 		<!-- box-shadow: 0 0 9px #222;
             border-radius: 20px;-->
 		
-		<!--right-->
-		<div  style="height: 840px;width:26%; float: right;padding:20px 20px; 	border-radius:0px;" >
-		    <!--class="div_info"
-		    background-color:#c4e3f2-->
-			<p id="fuck">小卡片<%= link_to "more >",list_cards_path, class: 'btn btn-xs btn-info' %></p>
+		<!--right 小卡片-->
+		<div  style=" overflow:auto; height: 840px;width:26%; float: right;padding:20px 20px; 	border-radius:0px;" >
+		    
+		    <span style="float: left">小卡片</span>
+			<span style="float: right"><%= link_to "more >", list_cards_path, class: 'btn btn-xs btn-info' %></span>
+			<p><br></p>
 			<% @index_cards.each do |c| %>
-			    <p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>
+			    <!--<p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>-->
+			    <span style="float: left"><%= c.user.name %></span>
+			    <p><br></p>
+			    <div style =" width:100%; height:40px;background-color: #c4e3f2">
+    				<%= c.content %>
+    			</div>
 			<% end %>
 		</div>
-		<!--right end-->
+		<!--right 小卡片 end-->
 		
 	</div>
 	<!--中间部分 end-->

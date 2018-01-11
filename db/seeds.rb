@@ -54,11 +54,12 @@ else
 end
 
 image1 = "http://p3.pstatp.com/origin/1634000698a440297532"
-image2 = "http://p3.pstatp.com/origin/168500007a74744d43ec"
+image2 = "http://p9.pstatp.com/origin/1634000698a5c6f2dfdb"
 image3 = "http://p3.pstatp.com/origin/19fe00008be1f0bc3f68"
 image4 = "http://p9.pstatp.com/origin/19fa00025081807195d8"
+
 url1 = "https://www.toutiao.com/i6383886598123028994/#p=9"
-url2 = "https://www.toutiao.com/a6403429391653536001"
+url2 = "https://www.toutiao.com/i6383886598123028994/#p=10"
 url3 = "https://www.toutiao.com/a6403429391653536001#p=5"
 url4 = "https://www.toutiao.com/a6403429391653536001#p=8"
 if Banner.count < 4

@@ -67,3 +67,7 @@ group :development do
   gem 'spring'
 end
 
+gem 'simplecov', 
+:require => false, :group => :test  #用simplecov检测代码涵盖率
+
+

@@ -27,6 +27,9 @@ Rails.application.routes.draw do
     end
   end
   
+  resources :tags
+  resources :merchants
+  resources :foods
   
 
   # devise_for :users

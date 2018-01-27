@@ -1,0 +1,33 @@
+<div class="container-fluid">
+  <div class="row">
+
+     <div class="col-md-offset-2 col-sm-8">
+
+      <div class="panel panel-primary" style = "margin-top : 10px">
+          <div class="panel-heading">
+          <h3 class="panel-title">标签列表</h3>
+          </div>
+      </div>
+
+        <div class="panel-body">
+          <table class="table table-responsive table-condensed table-hover">
+            <thead>
+            <tr>
+              <th>标签名称</th>
+            </tr>
+
+            <tbody>
+            <% @tags.each do |tag| %>
+                <tr>
+                  <td><%= tag.name %></td>
+                  <td><%= link_to "编辑", edit_tag_path(tag), class: 'btn btn-xs btn-info' %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <%= link_to "新增", new_tag_path, class: 'btn btn-xs btn-info' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

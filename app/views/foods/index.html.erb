@@ -1,0 +1,35 @@
+<div class="container-fluid">
+  <div class="row">
+
+     <div class="col-md-offset-2 col-sm-8">
+
+      <div class="panel panel-primary" style = "margin-top : 10px">
+          <div class="panel-heading">
+          <h3 class="panel-title">美食列表</h3>
+          </div>
+      </div>
+
+        <div class="panel-body">
+          <table class="table table-responsive table-condensed table-hover">
+            <thead>
+            <tr>
+              <th>美食名</th>
+              <th>商家</th>
+            </tr>
+
+            <tbody>
+            <% @foods.each do |food| %>
+                <tr>
+                  <td><%= food.name %></td>
+                  <td><%= food.merchant.name %></td>
+                  <td><%= link_to "编辑", edit_food_path(food), class: 'btn btn-xs btn-info' %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <%= link_to "新增", new_food_path, class: 'btn btn-xs btn-info' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

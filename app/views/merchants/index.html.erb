@@ -1,0 +1,37 @@
+<div class="container-fluid">
+  <div class="row">
+
+     <div class="col-md-offset-2 col-sm-8">
+
+      <div class="panel panel-primary" style = "margin-top : 10px">
+          <div class="panel-heading">
+          <h3 class="panel-title">商家列表</h3>
+          </div>
+      </div>
+
+        <div class="panel-body">
+          <table class="table table-responsive table-condensed table-hover">
+            <thead>
+            <tr>
+              <th>商家名称</th>
+              <th>地址</th>
+              <th>介绍</th>
+            </tr>
+
+            <tbody>
+            <% @merchants.each do |merchant| %>
+                <tr>
+                  <td><%= merchant.name %></td>
+                  <td><%= merchant.address %></td>
+                  <td><%= merchant.introduce %></td>
+                  <td><%= link_to "编辑", edit_merchant_path(merchant), class: 'btn btn-xs btn-info' %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+          <%= link_to "新增", new_merchant_path, class: 'btn btn-xs btn-info' %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

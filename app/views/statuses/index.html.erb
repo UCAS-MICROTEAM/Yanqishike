@@ -2,13 +2,16 @@
   <div class="row">
 
      <div class="col-md-offset-2 col-sm-8">
-
+       <div class="panel panel-primary" style = "margin-top : 10px">
+          <div class="panel-heading">
+          <h3 class="panel-title">我发布的动态 <%= link_to "创建", new_status_path, class: 'btn btn-xs btn-info' %>  <%= link_to "返回",  profile_index_path, class: 'btn btn-xs btn-info' %></h3>
+          </div>
+      </div>
 
         <div class="panel-body">
+          
           <table class="table table-responsive table-condensed table-hover">
-             <div class="panel-heading">
-          <h3 class="panel-title">我发布的动态 <%= link_to "创建", new_status_path, class: 'btn btn-xs btn-info' %></h3>
-          </div>
+             
             <thead>
             <tr>
               <th>id</th>
@@ -38,6 +41,7 @@
             <% end %>
             </tbody>
           </table>
+           
       </div>
     </div>
   </div>

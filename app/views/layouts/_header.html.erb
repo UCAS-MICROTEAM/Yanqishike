@@ -18,6 +18,20 @@
           <li> 
           <%= link_to( "#{current_user.name}的主页" , profile_index_path, class: 'btn btn-xs') %>
           </li>
+          <% if current_user.role==0%>
+          <li>
+          <%= link_to"美食管理", foods_path, class: 'btn btn-xs' %>
+          </li>
+          <li>
+          <%= link_to"商家管理", merchants_path, class: 'btn btn-xs' %>
+          </li>
+          <li>
+          <%= link_to"广告管理", banners_path, class: 'btn btn-xs' %>
+          </li>
+          <li>
+          <%= link_to"标签管理", tags_path, class: 'btn btn-xs' %>
+          </li>
+          <% end %>
           
           <!--<li> -->
           <!--  <%= link_to profile_index_path , class: 'btn btn-xs' do %>-->
@@ -31,7 +45,12 @@
       <!--Search部分-->
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">
+        <!--原宽度为450-->
+        <% if current_user!=nil and current_user.role==0 %>
+          <input type="text" class="form-control" style="width: 250px; height:46px;" placeholder="搜索全站内容">
+        <% else %>
           <input type="text" class="form-control" style="width: 450px; height:46px;" placeholder="搜索全站内容">
+        <% end %>
         </div>
         <!--<button type="submit" class="btn btn-default" " >Submit</button>-->
       </form>

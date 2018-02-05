@@ -5,11 +5,12 @@
 
       <div class="panel panel-primary" style = "margin-top : 10px">
           <div class="panel-heading">
-          <h3 class="panel-title">Card列表 <%= link_to "创建", new_card_path, class: 'btn btn-xs btn-info' %></h3>
+          <h3 class="panel-title">Card列表 <%= link_to "创建", new_card_path, class: 'btn btn-xs btn-info' %>  <%= link_to "返回", profile_index_path, class: 'btn btn-xs btn-info' %></h3>
           </div>
       </div>
 
         <div class="panel-body">
+         
           <table class="table table-responsive table-condensed table-hover">
             <thead>
             <tr>
@@ -31,6 +32,7 @@
             <% end %>
             </tbody>
           </table>
+           
       </div>
     </div>
   </div>

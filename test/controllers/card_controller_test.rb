@@ -1,52 +1,53 @@
 require 'test_helper'
 
-class BannersControllerTest < ActionController::TestCase
+class CardsControllerTest < ActionController::TestCase
    
   def setup
-    @banner=Banner.new(banner_params)
+    @card=Card.new(card_params)
   end
 end
-        
-class BannerControllerTest < ActionDispatch::IntegrationTest
+
+class CardControllerTest < ActionDispatch::IntegrationTest
   test "should get http" do
-    get banners_path
+    get cards_path
     assert_response :redirect
     #assert_redirected_to :action => "login"
 
     #assert_equal "Please log in", flash[:notice]
   end
   
-  def test_index_without_user
-
-    get banners_url
-
-    assert_redirected_to user_session_url
-
-    assert_equal nil, flash[:warning]
-  end
   
-  def test_index_with_user
-
-    get banners_url
-
-    assert_redirected_to user_session_url
-
-    assert_equal nil, flash[:success]
-  end
-
    test "the truth" do
      assert true
    end
    
-   test "update is success"do
-    get banners_url
+   def test_index_without_user
 
+    get cards_url
+
+    assert_redirected_to user_session_url
+
+    assert_equal nil, flash[:warning]
+   end
+   
+   def test_index_with_user
+
+    get cards_url
+
+    assert_redirected_to user_session_url
+
+    assert_equal nil, flash[:success]
+   end
+
+   def test_true
+     assert true
+   end
+   
+   test "update is success"do
+    get cards_url
     assert_redirected_to user_session_url
 
     assert_equal nil, flash[:info]
   end
-       
-   
-   
-  
+
 end

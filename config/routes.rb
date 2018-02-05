@@ -21,6 +21,7 @@ Rails.application.routes.draw do
     collection do
       get :list
       get 'foodofmerchant' #这个路由怎么指定参数？？？？？？
+      get :listzan
     end
     member do
       post :createcomment

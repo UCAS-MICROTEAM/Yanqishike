@@ -11,7 +11,7 @@
 
         <!--<li class=<%= "active" if params[:controller]=="homes" %>> <%= link_to "主页", root_path %></li>-->
         <!--<li><a href="#">主页</a></li>-->
-        <li><a href="#">收藏夹</a></li>
+        <li><%= link_to( "收藏夹" , listzan_statuses_path, class: 'btn btn-xs') %></li>
         <li><a href="javascript:void(0)" onclick="play_danmu()" target=”_blank">弹幕</a></li>
         <% if user_signed_in? %>
           <!--以下两种写法效果相同，第二种block中可以添加多个元素-->

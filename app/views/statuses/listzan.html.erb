@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+
+     <div class="col-md-offset-2 col-sm-8">
+       <div class="panel panel-primary" style = "margin-top : 10px">
+          <div class="panel-heading">
+          <h3 class="panel-title">收藏夹 <%= link_to "返回",  :root, class: 'btn btn-xs btn-info' %></h3>
+          </div>
+      </div>
+
+        <div class="panel-body">
+          
+          <table class="table table-responsive table-condensed table-hover">
+             
+            <thead>
+            <tr>
+              <th>id</th>
+              <th>内容</th>
+              <th>美食id</th>
+              <th>美食名</th>
+              <th>商家id</th>
+              <th>商家名</th>
+              <th>用户id</th>
+              <th>用户名字</th>
+            </tr>
+
+            <tbody>
+            <% @zans.each do |zan| %>
+                <tr>
+                  <td><%= zan.status.id %></td>
+                  <td><%= zan.status.content %></td>
+                  <td><%= zan.status.food.id %></td>
+                  <td><%= zan.status.food.name %></td>
+                  <td><%= zan.status.food.merchant.id %></td>
+                  <td><%= zan.status.food.merchant.name %></td>
+                  <td><%= zan.status.user.id %></td>
+                  <td><%= zan.status.user.name %></td>
+                  <td>
+                  <%= link_to deletezan_status_path(zan.status), method: :delete, remote: true do %>
+                  <span style = "float:right ; margin-right:5px ">取消收藏</span>
+                  <% end %>
+                  </td>
+                  <td><%=link_to "详情", status_path(zan.status) %></td>
+                </tr>
+            <% end %>
+            </tbody>
+          </table>
+           
+      </div>
+    </div>
+  </div>
+</div>

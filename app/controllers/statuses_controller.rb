@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:index, :new, :create, :edit, :update, :destroy, :createcomment, :createzan, :deletezan]
+before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:index, :new, :create, :edit, :update, :destroy, :createcomment, :createzan, :deletezan, :listzan]
 
   def new
     @status=Status.new
@@ -118,6 +118,10 @@ before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:i
     @zan.destroy
     #redirect_to :action => 'show', :id => @status
     redirect_to :back
+  end
+  
+  def listzan
+    @zans=current_user.zans
   end
   #############################################################################################
   

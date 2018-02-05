@@ -16,12 +16,12 @@
              <li><%= @status.user.name %></li>
             </ul>
             
-            <% if current_user.zans.where(status_id: @status.id).first!=nil %>
-            <%= link_to deletezan_status_path(status_id: @status.id), method: :delete, remote: true do %>
-            <span style = "float:right ; margin-right:5px ">已赞</span>
+            <% if current_user!=nil and current_user.zans.where(status_id: @status.id).first!=nil %>
+            <%= link_to deletezan_status_path(@status), method: :delete, remote: true do %>
+            <span style = "float:right ; margin-right:5px ">取消赞</span>
             <% end %>
             <% else %>
-            <%= link_to createzan_status_path(status_id: @status.id), method: :post, remote: true do %>
+            <%= link_to createzan_status_path(@status), method: :post, remote: true do %>
             <span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 赞</span>
             <% end %>
             <% end %>

@@ -1,5 +1,5 @@
 class StatusesController < ApplicationController
-before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:index, :new, :create, :edit, :update, :destroy, :createcomment]
+before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:index, :new, :create, :edit, :update, :destroy, :createcomment, :createzan, :deletezan]
 
   def new
     @status=Status.new
@@ -101,21 +101,24 @@ before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:i
   end
   
   def createzan
+    puts "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
     @zan = Zan.new
     @zan.user = current_user
-    @status_id = params["status_id"]
+    @status_id = params[:id]
     @status=Status.find_by_id(@status_id)
     @zan.status=@status
     @zan.save
-    redirect_to :action => 'show', :id => @status
+    #redirect_to :action => 'show', :id => @status
+    redirect_to :back
   end
   
   def deletezan
-    @status_id = params["status_id"]
+    @status_id = params[:id]
     @status=Status.find_by_id(@status_id)
     @zan=Zan.where(status_id: @status_id, user_id: current_user.id).first
     @zan.destroy
-    redirect_to :action => 'show', :id => @status
+    #redirect_to :action => 'show', :id => @status
+    redirect_to :back
   end
   #############################################################################################
   

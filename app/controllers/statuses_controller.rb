@@ -101,7 +101,6 @@ before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:i
   end
   
   def createzan
-    puts "ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd"
     @zan = Zan.new
     @zan.user = current_user
     @status_id = params[:id]

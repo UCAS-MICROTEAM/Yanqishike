@@ -53,8 +53,20 @@
     				        </div>
     				       <!--点赞、评论-->
     				        <div style = "height :20 px；width : 100%">
-    				           <span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 赞</span>    
+    				           <!--<span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 赞</span> -->
+                               <% if current_user!=nil and current_user.zans.where(status_id: s.id).first!=nil %>
+                               <%= link_to deletezan_status_path(s), method: :delete, remote: true do %>
+                               <span style = "float:right ; margin-right:5px ">取消赞</span>
+                               <% end %>
+                               <% else %>
+                               <%= link_to createzan_status_path(s), method: :post do %>
+                               <span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 赞</span>
+                               <% end %>
+                               <% end %>
+                            
+                               <%=link_to  status_path(s) do%>
     				           <span style = "float:right ; margin-right:20px"> <img src="/assets/comments1.png" alt="comments">评论  </span>
+    				           <% end %>
     				        </div>
     				        <!--点赞、评论 end-->
     				<% end %>

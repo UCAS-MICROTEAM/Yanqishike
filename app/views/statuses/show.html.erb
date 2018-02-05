@@ -7,7 +7,7 @@
         <div class="panel-body">
           
              <div class="panel-heading">
-          <h3 class="panel-title"> <%= link_to '返回', statuses_path, :class => "btn btn-default btn-block" %>动态详情</h3>
+          <h3 class="panel-title"> <%= link_to '返回', list_statuses_path, :class => "btn btn-default btn-block" %>动态详情</h3>
           </div>
             <ul>
              <li><%= @status.content %></li>
@@ -15,7 +15,7 @@
              <li><%= @status.food.merchant.name %></li>
              <li><%= @status.user.name %></li>
             </ul>
-            
+          
             <% if current_user!=nil and current_user.zans.where(status_id: @status.id).first!=nil %>
             <%= link_to deletezan_status_path(@status), method: :delete, remote: true do %>
             <span style = "float:right ; margin-right:5px ">取消赞</span>

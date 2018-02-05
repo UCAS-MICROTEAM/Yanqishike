@@ -100,6 +100,23 @@ before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:i
     redirect_to :action => 'show', :id => @status
   end
   
+  def createzan
+    @zan = Zan.new
+    @zan.user = current_user
+    @status_id = params["status_id"]
+    @status=Status.find_by_id(@status_id)
+    @zan.status=@status
+    @zan.save
+    redirect_to :action => 'show', :id => @status
+  end
+  
+  def deletezan
+    @status_id = params["status_id"]
+    @status=Status.find_by_id(@status_id)
+    @zan=Zan.where(status_id: @status_id, user_id: current_user.id).first
+    @zan.destroy
+    redirect_to :action => 'show', :id => @status
+  end
   #############################################################################################
   
   ########################局部刷新商家包含的food列表######################

@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     end
     member do
       post :createcomment
+      post :createzan
+      delete :deletezan
     end
   end
   

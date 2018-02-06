@@ -111,7 +111,7 @@ before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:i
       @comment.save
     end
     redirect_to :action => 'show', :id => @status
-  end
+  end  
   
   def createzan
     @zan = Zan.new

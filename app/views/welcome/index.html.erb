@@ -63,12 +63,15 @@
                                <% end %>
                                <% else %>
                                <%= link_to createzan_status_path(s), method: :post do %>
-                               <span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 收藏</span>
+                               
+                               <span style = "float:right ; margin-right:5px "> <%= image_tag "like1.png" %> 收藏</span>
+                               <!--<span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 收藏</span>-->
                                <% end %>
                                <% end %>
                             
                                <%=link_to  status_path(s) do%>
-    				           <span style = "float:right ; margin-right:20px"> <img src="/assets/comments1.png" alt="comments">评论  </span>
+    				           <!--<span style = "float:right ; margin-right:20px"> <img src="/assets/comments1.png" alt="comments">评论  </span>-->
+    				           <span style = "float:right ; margin-right:20px"> <%= image_tag "comments1.png" %>评论  </span>
     				           <% end %>
     				        </div>
     				        <!--点赞、评论 end-->

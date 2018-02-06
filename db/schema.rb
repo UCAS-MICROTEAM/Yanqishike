@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20180205024751) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "authors", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at"
@@ -33,7 +36,7 @@ ActiveRecord::Schema.define(version: 20180205024751) do
     t.datetime "updated_at"
   end
 
-  add_index "books", ["author_id"], name: "index_books_on_author_id"
+  add_index "books", ["author_id"], name: "index_books_on_author_id", using: :btree
 
   create_table "cards", force: :cascade do |t|
     t.integer  "user_id"
@@ -57,8 +60,8 @@ ActiveRecord::Schema.define(version: 20180205024751) do
     t.datetime "updated_at"
   end
 
-  add_index "food_tags", ["food_id"], name: "index_food_tags_on_food_id"
-  add_index "food_tags", ["tag_id"], name: "index_food_tags_on_tag_id"
+  add_index "food_tags", ["food_id"], name: "index_food_tags_on_food_id", using: :btree
+  add_index "food_tags", ["tag_id"], name: "index_food_tags_on_tag_id", using: :btree
 
   create_table "foodpaper", force: :cascade do |t|
     t.integer  "user_id"
@@ -67,7 +70,7 @@ ActiveRecord::Schema.define(version: 20180205024751) do
     t.datetime "updated_at"
   end
 
-  add_index "foodpaper", ["user_id"], name: "index_foodpaper_on_user_id"
+  add_index "foodpaper", ["user_id"], name: "index_foodpaper_on_user_id", using: :btree
 
   create_table "foods", force: :cascade do |t|
     t.string   "name"
@@ -77,8 +80,8 @@ ActiveRecord::Schema.define(version: 20180205024751) do
     t.datetime "updated_at"
   end
 
-  add_index "foods", ["merchant_id"], name: "index_foods_on_merchant_id"
-  add_index "foods", ["user_id"], name: "index_foods_on_user_id"
+  add_index "foods", ["merchant_id"], name: "index_foods_on_merchant_id", using: :btree
+  add_index "foods", ["user_id"], name: "index_foods_on_user_id", using: :btree
 
   create_table "merchants", force: :cascade do |t|
     t.string   "name"
@@ -104,8 +107,8 @@ ActiveRecord::Schema.define(version: 20180205024751) do
     t.datetime "updated_at"
   end
 
-  add_index "statuses", ["food_id"], name: "index_statuses_on_food_id"
-  add_index "statuses", ["user_id"], name: "index_statuses_on_user_id"
+  add_index "statuses", ["food_id"], name: "index_statuses_on_food_id", using: :btree
+  add_index "statuses", ["user_id"], name: "index_statuses_on_user_id", using: :btree
 
   create_table "tags", force: :cascade do |t|
     t.string   "name"
@@ -130,8 +133,8 @@ ActiveRecord::Schema.define(version: 20180205024751) do
     t.string   "name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "zans", force: :cascade do |t|
     t.integer  "user_id"
@@ -140,7 +143,7 @@ ActiveRecord::Schema.define(version: 20180205024751) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "zans", ["status_id"], name: "index_zans_on_status_id"
-  add_index "zans", ["user_id"], name: "index_zans_on_user_id"
+  add_index "zans", ["status_id"], name: "index_zans_on_status_id", using: :btree
+  add_index "zans", ["user_id"], name: "index_zans_on_user_id", using: :btree
 
 end

@@ -3,7 +3,7 @@
     <div class="col-md-offset-3 col-sm-6">
       <div class="panel panel-success">
         <div class="panel-heading">
-          <h3 class="text-center">Card</h3>
+          <h3 class="text-center">创建动态</h3>
         </div>
         <div class="panel-body">
           <%= render "statuses/form" %>
@@ -17,7 +17,7 @@
           <%= render partial: 'statuses/merchant', :locals => { :merchants_local => @merchants , :button_label => "测试传值"} %>
     </div>
     <div class="col-md-6" id="id_new_statuses_food">
-        <p>点击商家名称后将显示food列表</p>  
+        <p>点击商家名称后将显示food列表（Ajax异步请求）</p>  
     </div>
   </div>
 </div>

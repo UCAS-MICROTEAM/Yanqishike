@@ -34,8 +34,13 @@ else
     food1 = Food.first
 end
 
-if Status.count <= 2
-    for i in 0...20
+if Status.count <= 10
+    Status.create(:user => user1, :food => food1, :content => "床前明月光")
+    Status.create(:user => user1, :food => food1, :content => "疑是地上霜")
+    Status.create(:user => user1, :food => food1, :content => "举头望明月")
+    Status.create(:user => user1, :food => food1, :content => "低头思故乡")
+    
+    for i in 0...10
         # puts "局部变量的值为 #{i}"
         status1 = Status.create(:user => user1, :food => food1, :content => "我是发布的内容内容内容#{i}")
     end 
@@ -49,6 +54,11 @@ end
 # end
 
 if Card.count < 3
+    Card.create(:user => user1, :content => "春眠不觉晓")
+    Card.create(:user => user1, :content => "处处闻啼鸟")
+    Card.create(:user => user1, :content => "夜来风雨声")
+    Card.create(:user => user1, :content => "花落知多少")
+    
     for i in 0...20
         card1 = Card.create(:user => user1, :content => "我是小卡片的内容#{i}")
          puts "创建小卡片 #{card1.content}"
@@ -67,8 +77,17 @@ url2 = "https://www.toutiao.com/i6383886598123028994/#p=10"
 url3 = "https://www.toutiao.com/a6403429391653536001#p=5"
 url4 = "https://www.toutiao.com/a6403429391653536001#p=8"
 if Banner.count < 4
+    Banner.create(:content => "广告3", :image => image3, :url => url3)
      Banner.create(:content => "广告1", :image => image1, :url => url1)
      Banner.create(:content => "广告2", :image => image2, :url => url2)
-     Banner.create(:content => "广告3", :image => image3, :url => url3)
      Banner.create(:content => "广告4", :image => image4, :url => url4)
+end
+
+if Tag.count < 5
+    Tag.create(:name => "默认标签")
+    Tag.create(:name => "5星")
+    Tag.create(:name => "4星")
+    Tag.create(:name => "3星")
+    Tag.create(:name => "2星")
+    Tag.create(:name => "1星")
 end

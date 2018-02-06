@@ -59,11 +59,11 @@
     				           <!--<span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 赞</span> -->
                                <% if current_user!=nil and current_user.zans.where(status_id: s.id).first!=nil %>
                                <%= link_to deletezan_status_path(s), method: :delete, remote: true do %>
-                               <span style = "float:right ; margin-right:5px ">取消赞</span>
+                               <span style = "float:right ; margin-right:5px ">取消收藏</span>
                                <% end %>
                                <% else %>
                                <%= link_to createzan_status_path(s), method: :post do %>
-                               <span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 赞</span>
+                               <span style = "float:right ; margin-right:5px "> <img src="/assets/like1.png" alt="like"  > 收藏</span>
                                <% end %>
                                <% end %>
                             
@@ -90,7 +90,7 @@
 		    
 			<span style="float: right"><%= link_to "创建", new_card_path, class: 'btn btn-xs btn-info' %> <%= link_to "more >", list_cards_path, class: 'btn btn-xs btn-info' %></span>
 				
-			<a style="float: left" onclick="play_danmu()" target="_blank" class: 'btn btn-xs btn-info' >5秒弹幕</a>
+			<span style="float: left" onclick="play_danmu()" target="_blank" class='btn btn-xs btn-info' >5秒弹幕</span>
 			<p><br></p>
 			<% @index_cards.each do |c| %>
 			    <!--<p style="">小卡片内容：<%= c.content %> 来自：<%= c.user.name %></p>-->
@@ -107,7 +107,7 @@
 	<!--中间部分 end-->
 	
 	<!--弹幕-->
-    <div class="danmu-wrap flex-column" id="danmu_div_id" style="display: none; width:1200px; height:800px">
+    <div class="danmu-wrap flex-column" id="danmu_div_id" style="display: none; width:1170px; height:800px">
         <div class="box">
     </div>
     <!--<div class="send flex-row">-->
@@ -142,7 +142,7 @@ function getRandomNum(Min,Max){
     var oBox = document.querySelector('.box');   //获取.box元素
     var oCon = document.querySelector('.con');   //获取input框
     var oBtn = document.querySelector('.send-btn');   //获取发送按钮
-    var cW = 1200;// oBox.offsetWidth;   //获取box的宽度//FUCK，这里取不到正确的宽度
+    var cW = 1170;// oBox.offsetWidth;   //获取box的宽度//FUCK，这里取不到正确的宽度
     // var cH = oBox.offsetHeight;   //获取box的高度
     // 这里获取到的高度是0
     // console.log("cW->" + cW + " cH->" + cH);

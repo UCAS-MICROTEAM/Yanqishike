@@ -5,6 +5,7 @@ class DeviseCustomized::RegistrationsController < Devise::RegistrationsControlle
 #   //http://blog.csdn.net/remote_roamer/article/details/24404939
   def create  
     # add custom create logic here  
+    puts params
     super do |resource|  #操 这个super do 咋看不太懂呢
       resource.name = params[:user][:name]  
       resource.role = params[:user][:role]

@@ -10,6 +10,7 @@
 # 再一种写法
 # t=Time.now
 # Blog.create(:Title=>"中文第一版",:Created=>t,:Content=>"真实的    中文第一版")
+
 # if User.first == nil 
     # user1 = User.create(:name => "wangbin", :password => "wangbin", :role => 0)
 user1 = User.first
@@ -17,6 +18,9 @@ if user1 == nil
     # return
     puts "请先在网站上注册一个用户！！！"
 end
+
+user1.role = 0
+user1.save
 
 if Merchant.count < 5
     for i in 2..6

@@ -12,11 +12,10 @@
 .banner {
 	position: relative;
 	width: 100%;
-	height: 100%;
 	overflow: auto;
 
 	font-size: 18px;
-	line-height: 0px;
+	line-height: 24px;
 	text-align: center;
 
 	color: rgba(255,255,255,.6);
@@ -33,7 +32,7 @@
 		display: block;
 		float: left;
 		width: 33%;
-		min-height: 50px;
+		min-height: 350px;
 
 		-o-background-size: 100% 100%;
 		-ms-background-size: 100% 100%;
@@ -50,7 +49,7 @@
 
 	.banner h1, .banner h2 {
 		font-size: 40px;
-		line-height: 0px;
+		line-height: 52px;
 
 		color: #fff;
 	}
@@ -120,17 +119,14 @@
 
 	.banner .arrows {
 		position: absolute;
-		bottom: 200px;
+		bottom: 20px;
 		right: 20px;
 		color: #fff;
-		
 	}
 		.banner .arrow {
 			display: inline;
-			padding-left: 670px;
+			padding-left: 10px;
 			cursor: pointer;
-			/*background-image:url("sprite.png");*/
-			
 		}
 
 
@@ -175,3 +171,4 @@
 		width: 100%;
 	}
 }
+

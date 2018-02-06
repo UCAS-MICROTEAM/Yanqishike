@@ -1,8 +1,10 @@
 <div class="container">
-    <h1>Profile#index 我的主页</h1>
-    <p>Find me in app/views/profile/index.html.erb</p>
+    
+    <!--<p>Find me in app/views/profile/index.html.erb</p>-->
     <div class="row">
+     
         <div class="col-md-offset-3 col-sm-6">
+           <h1>我的主页</h1>
             <div >
                 <p>我共发过<%= @cards.count %>个小卡片 
                     <%= link_to "查看", cards_path(current_user), class: 'btn btn-xs btn-info' %>

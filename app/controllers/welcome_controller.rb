@@ -7,12 +7,24 @@ class WelcomeController < ApplicationController
         # end
         # 近期的动态（美食记）
         # @index_statuses =  Status.last(5).reverse
-        @index_statuses =  Status.all.reverse
+        @index_statuses =  Status.last(10).reverse
+        if @index_statuses == nil
+            @index_statuses = Array.new
+        end
         # 近期的美食单
         # @index_foodpapers = Foodpaper.last(6).reverse!
         # 小卡片
         @index_cards = Card.last(10).reverse
+        
         @index_banners = Banner.all
+        
+        if @index_cards == nil
+            @index_cards = Array.new
+        end
+        
+        if @index_banners == nil
+            @index_banners = Array.new
+        end
     end
 
     def ajaxloadcards

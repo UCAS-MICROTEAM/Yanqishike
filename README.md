@@ -69,10 +69,10 @@ class BannerTest < ActiveSupport::TestCase
     end
 
    
-   test "should be valid" do #测试banner是否存在
+   test "should be valid" do 
      assert  @banner
    end
-   test "url validation should accept valid url address" do   #测试url格式是否正确
+   test "url validation should accept valid url address" do   
     valid_addresses = %w[https://www.example.com https://www.example2.com/ 
                          https://www.example.com https://www.toutiao.com/a6403429391653536001
                          https://ruby-china.github.io/rails-guides/testing.html]
@@ -87,8 +87,8 @@ end
 ### 视图和控制器测试   
 
 这里以小卡片控制器测试为例，测试文件位于``test/controllers/card_controller_test.rb``.首先在测试文件中  
-生成一个``@card``对象，这个对象所对应的添加该卡片的用户名和密码可以``在test/fixtures/card.yml``中指定。之后  
-通过``get``的方法到达小卡片的界面（``cards_path``),通过 ``assert_response``确保界面响应。之后``get cards_url`，  
+生成一个``@card``对象，这个对象所对应的添加该卡片的用户名和密码可以``在test/fixtures/card.yml``中指定。然后  
+通过``get``的方法到达小卡片的界面（``cards_path``),通过 ``assert_response``确保界面响应正确。然后``get cards_url``，  
 通过``assert_redirected_to``来测试``cards_url``是否重定向到`` user_session_url``，判断跳转过程是否发生，之后  
 用``assert_equal``测试跳转后的``flash``内容，来判断当前小卡片的提交状态。
 ```Ruby  
@@ -132,7 +132,8 @@ class ActiveSupport::TestCase
 
   # Add more helper methods to be used by all tests here...
 end  
-```
+```  
+* 3.运行rake test,成功后会根目录的coverage下生成一个index.html文件，用浏览器打开即能看到结果。
 
 
 Welcome to your Rails project on Cloud9 IDE!

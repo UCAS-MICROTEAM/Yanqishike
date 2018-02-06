@@ -20,8 +20,8 @@
             <tbody>
             <% @foods.each do |food| %>
                 <tr>
-                  <td><%= food.name %></td>
-                  <td><%= food.merchant.name %></td>
+                  <td><%= food.name  %></td>
+                  <td><%= food.merchant.name if food.merchant %></td>
                   <td><%= link_to "编辑", edit_food_path(food), class: 'btn btn-xs btn-info' %></td>
                 </tr>
             <% end %>

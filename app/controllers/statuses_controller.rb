@@ -17,10 +17,23 @@ before_action :authenticate_user!, :user_signed_in?, :current_user, :only => [:i
     @status.user = current_user
     @merchant_name = params["merchant_name"]
     @food_name =  params["food_name"]
-    if @merchant_name == nil || @food_name == nil
-      flash[:warning] = "信息填写有误,请重试"
-      render 'new'
-      return
+    if  @status.content.length < 1  
+      # flash[:warning] = "请输入内容后再发布"
+      # render 'new'
+      # return
+       @status.content = "无内容"
+    end
+    # if @merchant_name == "" || @food_name == ""
+    #   flash[:warning] = "信息填写有误,请重试"
+    #   render 'new'
+    #   return
+    # end
+    if @merchant_name.length < 1  
+      @merchant_name = "默认商家"
+    end
+    
+     if @food_name.length < 1  
+      @food_name = "默认美食"
     end
       
     puts "============================="

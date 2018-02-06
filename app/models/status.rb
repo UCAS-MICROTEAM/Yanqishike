@@ -3,4 +3,6 @@ class Status < ActiveRecord::Base
     belongs_to :food
     has_many :comments
     has_many :zans
+    
+    validates :content, presence: true
 end

@@ -43,8 +43,8 @@
 			<div style="height: 560px; border-right:2px solid #a1a1a1; padding:20px 20px;  ">
 				
 				<span style="float: left">动态</span>
-				<span style="float: right"><%= link_to "more >", list_statuses_path, class: 'btn btn-xs btn-info' %></span>
-				
+				<span style="float: right"><%= link_to "创建",  new_status_path, class: 'btn btn-xs btn-info' %> <%= link_to "more >", list_statuses_path, class: 'btn btn-xs btn-info' %></span>
+			
 				<p><br></p>
 				<div style = "overflow:auto;height:450px;">
     				<% @index_statuses.each do |s| %>
@@ -88,7 +88,8 @@
 		    
 		    <span style="float: left">小卡片</span>
 		    
-			<span style="float: right"><%= link_to "more >", list_cards_path, class: 'btn btn-xs btn-info' %></span>
+			<span style="float: right"><%= link_to "创建", new_card_path, class: 'btn btn-xs btn-info' %> <%= link_to "more >", list_cards_path, class: 'btn btn-xs btn-info' %></span>
+				
 			<a style="float: left" onclick="play_danmu()" target="_blank" class: 'btn btn-xs btn-info' >5秒弹幕</a>
 			<p><br></p>
 			<% @index_cards.each do |c| %>
